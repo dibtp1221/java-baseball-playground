@@ -14,4 +14,11 @@ class UmpireTest {
         assertEquals(expected, umpire.countStrike(answer, input));
     }
 
+    @ParameterizedTest
+    @CsvSource({"713,123,1", "713,145,1", "713,671,2", "713,216,0", "713,713,0"})
+    void countBall(String answer, String input, int expected) {
+        Umpire umpire = new Umpire();
+        assertEquals(expected, umpire.countBall(answer, input));
+    }
+
 }
