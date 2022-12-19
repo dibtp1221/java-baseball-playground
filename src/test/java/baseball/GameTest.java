@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.HashMap;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -30,5 +31,14 @@ class GameTest {
     void makeResultMsg(String expected, int ballCount, int strikeCount) {
         Game game = new Game();
         assertEquals(expected, game.makeResultMsg(ballCount, strikeCount));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"713,123,1,1", "713,145,1,0", "713,671,2,0", "713,216,0,1", "713,713,0,3"})
+    void score(String answer, String input, int ballCount, int strikeCount) {
+        Game game = new Game();
+        HashMap<BallType, Integer> score = game.score(answer, input);
+        assertEquals(ballCount, score.get(BallType.BALL));
+        assertEquals(strikeCount, score.get(BallType.STRIKE));
     }
 }

@@ -4,13 +4,22 @@ import java.util.*;
 
 public class Game {
     private final int numSize;
+    private final Umpire umpire;
 
     public Game() {
         numSize = 3;
+        umpire = new Umpire();
     }
 
     public int getNumSize() {
         return numSize;
+    }
+
+    protected HashMap<BallType, Integer> score(String answer, String input) {
+        HashMap<BallType, Integer> result = new HashMap<>();
+        result.put(BallType.BALL, umpire.countBall(answer, input));
+        result.put(BallType.STRIKE, umpire.countStrike(answer, input));
+        return result;
     }
 
     protected String makeResultMsg(int ballCount, int strikeCount) {
