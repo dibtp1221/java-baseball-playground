@@ -2,6 +2,8 @@ package baseball;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -21,5 +23,12 @@ class GameTest {
         }
         Set<Character> collect = randomNumber.chars().mapToObj(i -> (char) i).collect(Collectors.toSet());
         assertEquals(game.getNumSize(), collect.size());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"낫싱,0,0", "1볼 1스트라이크,1,1", "2스트라이크,0,2", "2볼,2,0"})
+    void makeResultMsg(String expected, int ballCount, int strikeCount) {
+        Game game = new Game();
+        assertEquals(expected, game.makeResultMsg(ballCount, strikeCount));
     }
 }

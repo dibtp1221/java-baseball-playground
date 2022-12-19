@@ -1,8 +1,6 @@
 package baseball;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Game {
     private final int numSize;
@@ -13,6 +11,23 @@ public class Game {
 
     public int getNumSize() {
         return numSize;
+    }
+
+    protected String makeResultMsg(int ballCount, int strikeCount) {
+        String resultMsg = "";
+        if (ballCount == 0 && strikeCount == 0) {
+            return "낫싱";
+        }
+        if (ballCount > 0) {
+            resultMsg += ballCount + "볼";
+        }
+        if (ballCount > 0 && strikeCount > 0) {
+            resultMsg += " ";
+        }
+        if (strikeCount > 0) {
+            resultMsg += strikeCount + "스트라이크";
+        }
+        return resultMsg;
     }
 
     protected String createRandomNumber() {
