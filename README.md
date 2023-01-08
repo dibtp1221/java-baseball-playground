@@ -24,3 +24,12 @@ git checkout main // 기본 브랜치가 main인 경우
 git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
+
+### 기능 목록
+- 랜덤으로 3자리 수 만들기
+- count strike
+- count ball
+- 볼,스트라이크 결과 메시지 만들기
+- 입력 (입력값 검증도)
+- 결과 출력
+- 전체 게임 구성
