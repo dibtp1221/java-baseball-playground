@@ -32,4 +32,23 @@ public class Umpire {
         if (input.contains(num)) return 1;
         else return 0;
     }
+
+    public String callCounts(List<Integer> answer, List<Integer> input) {
+        int ball = countBall(answer, input);
+        int strike = countStrike(answer, input);
+        if (ball == 0 && strike == 0) {
+            return "낫싱";
+        }
+        String call = "";
+        if (ball != 0) {
+            call += ball + "볼";
+        }
+        if (ball != 0 && strike != 0) {
+            call += " ";
+        }
+        if (strike != 0) {
+            call += strike + "스트라이크";
+        }
+        return call;
+    }
 }
