@@ -9,8 +9,9 @@ public class InputGetterTest {
     @Test
     void getInput() {
         InputGetter inputGetter = new InputGetter();
-        Assertions.assertEquals(Arrays.asList(1, 2, 3), inputGetter.getInput("123"));
-        Assertions.assertThrows(NumberFormatException.class, () -> inputGetter.getInput("1034"));
-        Assertions.assertThrows(NumberFormatException.class, () -> inputGetter.getInput("ds3"));
+        Assertions.assertEquals(Arrays.asList(1, 2, 3), inputGetter.parseInput("123"));
+        Assertions.assertThrows(NumberFormatException.class, () -> inputGetter.parseInput("1034"));
+        Assertions.assertThrows(NumberFormatException.class, () -> inputGetter.parseInput("1"));
+        Assertions.assertThrows(NumberFormatException.class, () -> inputGetter.parseInput("ds3"));
     }
 }
