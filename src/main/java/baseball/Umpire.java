@@ -3,7 +3,7 @@ package baseball;
 import java.util.List;
 
 public class Umpire {
-    public int countStrike(List<Integer> answer, List<Integer> input) {
+    protected int countStrike(List<Integer> answer, List<Integer> input) {
         int count = 0;
         for (int i=0; i<answer.size(); i++) {
             count += isSame(answer.get(i), input.get(i));
@@ -16,7 +16,7 @@ public class Umpire {
         else return 0;
     }
 
-    public int countBall(List<Integer> answer, List<Integer> input) {
+    protected int countBall(List<Integer> answer, List<Integer> input) {
         return countSameNumbers(answer, input) - countStrike(answer, input);
     }
 
